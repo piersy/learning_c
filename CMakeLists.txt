@@ -1,4 +1,3 @@
-# At LEAST 2.6 but newer is better
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 project(learning_c VERSION 0.1 LANGUAGES CXX C)
 
@@ -17,3 +16,4 @@ target_link_libraries(learning_c
 )
 
 
+add_executable(main main.c)

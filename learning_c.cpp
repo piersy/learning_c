@@ -4,6 +4,7 @@
 
 struct test_struct {
 	int i;
+	char ** stuff;
 };
 
 void fillStruct(test_struct *t, int val){
@@ -29,6 +30,12 @@ void fillStruct4(test_struct *t, int val){
 	//make our struct pointer point to their struct
 	 test_struct *retStruct = t;
 	 retStruct->i = val;
+}
+
+TEST(learning_c, free_null)
+{
+	struct test_struct *t = (struct test_struct*)malloc(sizeof(struct test_struct));
+	free(t->stuff);
 }
 
 TEST(learning_c, DISABLED_return_struct)
@@ -68,7 +75,6 @@ TEST(learning_c, dereference_uninitialised_struct_pointer)
 TEST(learning_c, return_struct3)
 {
 	test_struct **t;
-	*t = NULL;
 	printf("about to fill\n");
 	fillStruct3(t, 5);
 	printf("filled\n");
